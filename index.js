@@ -5,6 +5,10 @@ const path = require('path');
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, 'client/dist/index.html')));
 app.use('/assets', express.static(path.join(__dirname, 'client/dist/assets')));
 
+app.get('/api/notes', (req, res, next)=> {
+  res.send([{ txt: 'hi'}]);
+});
+
 
 const init = ()=> {
   console.log('seed some data');
